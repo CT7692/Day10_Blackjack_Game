@@ -101,8 +101,7 @@ keep_playing = True
 while keep_playing:
   player_hand_setup(player_hand, cards)
   dealer_hand_setup(dealer_hand, cards)
-  next_move = validator("stand", "hit", next_move_prompt)
-  if next_move == "hit":
+  if (next_move := validator("stand", "hit", next_move_prompt)) == "hit":
     in_sequence = True
     while in_sequence:
       hit(player_hand, cards)
@@ -120,8 +119,7 @@ while keep_playing:
     dealer_sequence(player_hand, dealer_hand, cards)
   
   get_outcome(player_hand, dealer_hand)
-  another_round = validator("yes", "no", keep_going_prompt)
-  if another_round == "yes":
+  if (another_round := validator("yes", "no", keep_going_prompt)) == "yes":
     intro()
     player_hand = []
     dealer_hand = []
