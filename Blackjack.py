@@ -19,6 +19,8 @@
 
 ############### Function Definitions:
 
+import secrets
+
 def intro():
   clear()
   print(art.logo)
@@ -109,7 +111,7 @@ while keep_playing:
       if sum(player_hand) < 21:
         next_move = validator("stand", "hit", next_move_prompt)
       else:
-        dealer_hand[0] = cards[random.randint(0, len(cards) - 1)]
+        dealer_hand[0] = cards[secrets.SystemRandom().randint(0, len(cards) - 1)]
         in_sequence = False
       if next_move == "stand":
         in_sequence = False
